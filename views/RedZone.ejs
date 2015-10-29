@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+    <% include partials/page/head.ejs %>
+    <link rel="stylesheet" href="css/RedZone.css">
+</head>
+<body>
+<div class="page-wrapper">
+    <% include partials/page/navbar.ejs %>
+
+    <div class="doctor">
+        <img id="med" src="img/med.png">
+        <span>Dr. Jodie Rodriguez - </span>
+        <span class="phonenumber">404 368 0896</span>
+    </div>
+
+
+    <div class="container top" id="body">
+        <div class="row" style="padding:0px 5px">
+            <div class="col-xs-4">
+                <div class="row">
+                    <div class="box greenBox" onclick="goToGreenZone()">
+                        <p class="adjust">Green</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="row">
+                    <div class="box yellowBox" onclick="goToYellowZone()">
+                        <p class="adjust">Yellow</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="row">
+                    <div class="box redBox">
+                        <p class="adjust">Red</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row top">
+            <div class="col-xs-4 center">
+                <img class="imgGray1" src="img/red1.png">
+                <br>
+
+                <p class="textAvenir">Worse Cough</p>
+            </div>
+            <div class="col-xs-4 center">
+                <img class="imgGray2" src="img/blue.png">
+                <br>
+
+                <p class="textAvenir">Pale skin / Blue lips & nails</p>
+            </div>
+            <div class="col-xs-4 center">
+                <img class="imgGray2" src="img/ribs.png">
+                <br>
+
+                <p class="textAvenir">Skin tight around ribs</p>
+            </div>
+        </div>
+
+        <div class="row top padding">
+            <div class="col-xs-12 medBox" style="padding:0px;">
+                <div class="col-xs-6 alignCenter" id="col1">
+                    <img class="firstPic" src="img/redTimer1.png">
+                    <br>
+                    <br>
+                    <span class="hours">Every</span><br/>
+                    <span class="bold textMed">20</span>
+                    <span class="textMed">min</span>
+                </div>
+
+                <div class="col-xs-6 alignCenter" id="col2">
+                    <img class="secondPic" src="img/4puffs.png" style="width: 100%;height: 100%;margin-top: 30px;padding-bottom: 10px;">
+                    <br/>
+                    <br/>
+                    <span class="textMed">Albuterol</span><br/>
+                    <span class="bold textMed">4 puffs</span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row top center">
+            <div class="col-xs-5 alignRight pull-left">
+                <img src="img/cancel.png">
+            </div>
+            <div class="col-xs-5 alignLeft pull-right">
+                <img src="img/arrow1.png">
+            </div>
+        </div>
+
+
+    </div>
+    <div class="row top center">
+        <button class="red">
+            <img src="img/phoneCall.png" height="50" width="25" class="pull-left">
+
+            <p class="pull-right">Call 911</p>
+        </button>
+    </div>
+
+
+    <!-- this contains the nearest hospitals near you -->
+    <div class="row top">
+        <div class="borderBlack">
+            <h4>Nearest Hospital</h4>
+
+            <div class="col-xs-6">
+                <p>Northside Hospital</p>
+
+                <p><a href="#">1000 Johnson Ferry Rd Atlanta, GA 30342</a></p>
+            </div>
+            <div class="col-xs-6 clearRight">
+                <p>&nbsp;</p>
+
+                <p><span class="closeHospital">2.5 miles<span></p>
+
+                <p>10 min</p>
+            </div>
+
+
+            <div class="col-xs-6 clearBoth top">
+                <p>Piedmont Hospital</p>
+
+                <p><a href="#">31969 Peachtree Rd NW Atlanta, GA 30309</a></p>
+            </div>
+            <div class="col-xs-6 top">
+                <p>&nbsp;</p>
+
+                <p><span class="farHospital">4.5 miles</span></p>
+
+                <p>15 min</p>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="startup/common-files/js/jquery-1.10.2.min.js"></script>
+<script src="startup/common-files/js/jquery.bxslider.min.js"></script>
+<script src="startup/common-files/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script src="startup/common-files/js/jquery.sharrre.min.js"></script>
+<script src="startup/flat-ui/js/bootstrap.min.js"></script>
+<script src="startup/common-files/js/masonry.pkgd.min.js"></script>
+<script src="startup/common-files/js/modernizr.custom.js"></script>
+<script src="startup/common-files/js/page-transitions.js"></script>
+<script src="startup/common-files/js/easing.min.js"></script>
+<script src="startup/common-files/js/jquery.svg.js"></script>
+<script src="startup/common-files/js/jquery.svganim.js"></script>
+<script src="startup/common-files/js/jquery.backgroundvideo.min.js"></script>
+<script src="startup/common-files/js/froogaloop.min.js"></script>
+<script src="startup/common-files/js/startup-kit.js"></script>
+<script src="js/RedZone.js"></script>
+</body>
+
+
+</html>

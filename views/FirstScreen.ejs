@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include partials/page/head.ejs %>
+
+    <link rel="stylesheet" href="css/FirstScreen.css">
+
+    <link href="calendar/fullcalendar.css" rel="stylesheet"/>
+    <link href="calendar/fullcalendar.print.css" rel='stylesheet' media='print'/>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $("#calendar").fullCalendar({
+                header: {
+                    left: 'prev,next',
+                    center: 'title',
+                    right: 'month,basicWeek'
+                },
+                // defaultDate: '2014-11-12',
+                editable: true,
+                defaultView: 'basicWeek',
+                height: 200
+
+            });
+
+        });
+
+    </script>
+
+
+</head>
+<body>
+
+<!-- just creates the nav bar -->
+<div class="page-wrapper">
+    <% include partials/page/navbar.ejs %>
+
+    <div class="doctorRow">
+        <img id="doctorImage" src="img/med.png">
+        <span>Dr. Jodie Rodriguez - </span>
+        <span class="phonenumber">404 368 0896</span>
+    </div>
+
+    <div class="container">
+        <div id="calendar"></div>
+        <!-- creates the calendar -->
+
+        <div class="row">
+            <div class="header">
+                <p>Today my child: </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="box">
+                    <img class="pen" id="pen" src="img/schoolUnfill.png">
+                </div>
+                <div class="info">Missed School</div>
+            </div>
+
+            <div class="col-xs-3">
+                <div class="box">
+                    <img class="sleep" id="sleep" src="img/sleepUnfill.png">
+                </div>
+                <div class="info">Couldn't sleep</div>
+            </div>
+
+            <div class="col-xs-3">
+                <div class="box">
+                    <img class="limitedActivity" id="tired" src="img/limitUnfill.png">
+                </div>
+                <div class="info">Limit activity</div>
+            </div>
+
+            <div class="col-xs-3">
+                <div class="box">
+                    <img class="reliever" id="reliever" src="img/releiveUnfill.png">
+                </div>
+                <div class="info">Used reliever med</div>
+            </div>
+        </div>
+
+        <div class="row marginBottom50"> <!-- the last row with green, yellow, and red boxes -->
+            <div class="header">
+                <p>Go to Asthma Action Plan</p>
+            </div>
+            <div class="col-xs-4 IBAAP">
+                <button class="btn green" id="green" onclick="goToGreen()">
+                    <div class="buttonHeading">
+                        Green
+                    </div>
+                    <img class="greenPerson" src="img/greenSmall.png">
+                </button>
+            </div>
+            <div class="col-xs-4 IBAAP">
+                <button class="btn yellow" id="yellow" onclick="goToYellow()">
+                    <div class="buttonHeading">
+                        Yellow
+                    </div>
+                    <img class="yellowPerson" src="img/someCoughSmall.png">
+                </button>
+            </div>
+            <div class="col-xs-4 IBAAP">
+                <button class="btn red" id="red" onclick="goToRed()">
+                    <div class="buttonHeading">
+                        Red
+                    </div>
+                    <img class="redPerson" src="img/moreCoughSmall.png">
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="startup/common-files/js/jquery-1.10.2.min.js"></script>
+<script src="startup/common-files/js/jquery.bxslider.min.js"></script>
+<script src="startup/common-files/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script src="startup/common-files/js/jquery.sharrre.min.js"></script>
+<script src="startup/flat-ui/js/bootstrap.min.js"></script>
+<script src="startup/common-files/js/masonry.pkgd.min.js"></script>
+<script src="startup/common-files/js/modernizr.custom.js"></script>
+<script src="startup/common-files/js/page-transitions.js"></script>
+<script src="startup/common-files/js/easing.min.js"></script>
+<script src="startup/common-files/js/jquery.svg.js"></script>
+<script src="startup/common-files/js/jquery.svganim.js"></script>
+<script src="startup/common-files/js/jquery.backgroundvideo.min.js"></script>
+<script src="startup/common-files/js/froogaloop.min.js"></script>
+<script src="startup/common-files/js/startup-kit.js"></script>
+
+<script src="js/FirstPage.js"></script>
+<script src='calendar/moment.min.js'></script>
+<script src='calendar/jquery.min.js'></script>
+<script src='calendar/fullcalendar.min.js'></script>
+</body>
+</html>

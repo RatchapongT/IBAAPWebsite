@@ -1,0 +1,73 @@
+/*----- Accordion -----*/
+.accordion, .accordion * {
+    -webkit-box-sizing:border-box; 
+    -moz-box-sizing:border-box; 
+    box-sizing:border-box;
+}
+ 
+.accordion {
+    overflow:hidden;
+    box-shadow:0px 1px 3px rgba(0,0,0,0.25);
+    border-radius:3px;
+    background:;
+    width: 90%;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+.accordion-section{
+
+}
+ 
+/*----- Section Titles -----*/
+.accordion-section-title {
+    width:100%;
+    padding:15px;
+    display:inline-block;
+    background:;
+    transition:all linear 0.15s;
+    /* Type */
+    font-size:1.200em;
+    color:grey;
+    position: relative;
+    float: left;
+    border-bottom: 1px solid #ddd;
+}
+.accordion-section-title span{
+	margin-left: 5px;
+}
+.trigIcon{
+	float: left;
+	position: relative;
+} 
+/*.accordion-section-title.active, .accordion-section-title:hover {
+    background:#4c4c4c;
+    /* Type 
+    text-decoration:none;
+}*/
+ 
+.accordion-section:last-child .accordion-section-title {
+    border-bottom:none;
+}
+ 
+/*----- Section Content -----*/
+.accordion-section-content {
+    padding:15px;
+    display:none;
+}
+.accordion-section-content ul{
+	margin-top: 10px;
+}
+.accordion-section-content h6{
+	color: #00994F !important;
+	margin-top: 50px !important;
+}
+
+/*General styles*/
+.heading {
+	font-size: 18px;
+	color: #979797;
+}
+
+.adjust {
+	margin-top: 20px;
+}

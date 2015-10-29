@@ -1,0 +1,48 @@
+.heading {
+	font-size: 18px;
+	color: #979797;
+}
+
+.adjust {
+	margin-top: 20px;
+}
+
+.appointment {
+	background-color: #34495E;
+	color:white;
+	font-size: 16px;
+	margin-top: 20px;
+	padding: 5px 20px;
+	font-family: "Avenir Next";
+}
+
+.med {
+	background-color: #4A90E2;
+	color:white;
+	font-size: 16px;
+	margin-top: 20px;
+	padding: 5px 20px;
+	font-family: "Avenir Next";
+
+}
+
+.education {
+	background-color: #1ABC9C;
+	color:white;
+	font-size: 16px;
+	margin-top: 20px;
+	padding: 5px 20px;
+	font-family: "Avenir Next";
+}
+
+.appointmentTable {
+	color:#4A4A4A;
+	background-color: #E7E7E7;
+	text-align: left;
+	font-size: 15px;
+	font-family: "Avenir Next";
+}
+
+.image {
+	width:16px;
+}

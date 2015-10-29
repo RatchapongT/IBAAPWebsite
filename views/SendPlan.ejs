@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <% include partials/page/head.ejs %>
+    <link rel = "stylesheet" href = "css/SendPlan.css">
+
+</head>
+
+<body>
+
+    <!-- just creates the nav bar -->
+    <div class="page-wrapper">
+        <% include partials/page/navbar.ejs %>
+
+        <div class = "container">
+
+   
+          <div class = "row adjust1">
+            <div id = "emails">
+              <form>
+                <div class="form-group">
+                  <label>Email</label>
+	    				     <input type="email" class="form-control" placeholder="Enter email">
+	  				    </div>
+				      </form>   
+            </div>
+    
+
+
+
+           	<div class = "row adjust2">
+           		<div class = "col-xs-1">
+           			<img class = "add" src= "img/addRecipient.png" onclick = "addRecipient()">
+           		</div>
+           		<div class = "col-xs-11">
+           			<span>
+           				<p class = "addText">Add Recipient</p>
+           			</span>
+           		</div>
+        
+           		
+           		
+           	</div>
+           	<div class = "row adjust2">
+           		<div class = "text-center">
+	  				<button type="submit" class="sendButton">Send</button>
+	  			</div> 
+	  		</div>	
+
+
+
+        </div>
+    </div>    
+
+
+
+        
+          <!-- Placed at the end of the document so the pages load faster -->
+            <script src="startup/common-files/js/jquery-1.10.2.min.js"></script>
+            <script src="startup/common-files/js/jquery.bxslider.min.js"></script>
+            <script src="startup/common-files/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+            <script src="startup/common-files/js/jquery.sharrre.min.js"></script>
+            <script src="startup/flat-ui/js/bootstrap.min.js"></script>
+            <script src="startup/common-files/js/masonry.pkgd.min.js"></script>
+            <script src="startup/common-files/js/modernizr.custom.js"></script>
+            <script src="startup/common-files/js/page-transitions.js"></script>
+            <script src="startup/common-files/js/easing.min.js"></script>
+            <script src="startup/common-files/js/jquery.svg.js"></script>
+            <script src="startup/common-files/js/jquery.svganim.js"></script>
+            <script src="startup/common-files/js/jquery.backgroundvideo.min.js"></script>
+            <script src="startup/common-files/js/froogaloop.min.js"></script>
+            <script src="startup/common-files/js/startup-kit.js"></script>
+            <script src = "js/SendPlan.js"></script>
+</body>
+
+
+</html>

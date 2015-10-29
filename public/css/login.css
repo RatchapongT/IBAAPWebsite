@@ -1,0 +1,43 @@
+.Title {
+	text-align: center;
+	
+	margin-top: 72px;
+
+}
+
+.title2 {
+	color: #4A90E2;
+	font-size: 50px;
+	font-family: "Avenir Next";
+}
+
+.login {
+	text-align: center;
+	font-size: 30px;
+	font-family: "Avenir Next";
+	color: #979797;
+	margin-top: 30px;
+}
+
+
+.header {
+	color: #979797;
+	font-family: "Avenir Next";
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.center {
+	text-align: center;
+}
+
+#submit {
+	background-color: #F5A623;
+	min-width: 223px;
+	min-height: 40px;
+	color:#fff;
+	font-family: "Avenir Next";
+	font-size: 24px;
+	outline:none;
+	border:none;
+}
