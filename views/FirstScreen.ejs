@@ -13,6 +13,33 @@
         $(document).ready(function () {
 
             $("#calendar").fullCalendar({
+                dayClick: function(date, jsEvent, view) {
+                    // change the day's background color just for fun
+                    $(".fc-today").removeClass("fc-today");
+                    $(jsEvent.target).addClass("fc-today");
+                    if ($(this).find(".relieverIcon").length > 0) {
+                        $("#reliever").attr('src', 'img/releiveFill.png');
+                    } else {
+                        $("#reliever").attr('src', 'img/releiveUnfill.png');
+                    }
+                    if ($(this).find(".tiredIcon").length > 0) {
+                        $("#tired").attr('src', 'img/limitFill.png');
+                    } else {
+                        $("#tired").attr('src', 'img/limitUnfill.png');
+                    }
+                    if ($(this).find(".sleepIcon").length > 0) {
+                        $("#sleep").attr('src', 'img/sleepFill.png');
+                    } else {
+                        $("#sleep").attr('src', 'img/sleepUnfill.png');
+                    }
+                    if ($(this).find(".schoolIcon").length > 0) {
+                        $("#pen").attr('src', 'img/schoolFill.png');
+                    } else {
+                        $("#pen").attr('src', 'img/schoolUnfill.png');
+                    }
+
+
+                },
                 header: {
                     left: 'prev,next',
                     center: 'title',
@@ -24,6 +51,7 @@
                 height: 200
 
             });
+
 
         });
 
