@@ -15,8 +15,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var MongoStore = connectMongo(expressSession);
-var passportConfig = require('./auth/passport-config');
-passportConfig();
+
 mongoose.connect(config.mongoUri);
 var app = express();
 
@@ -43,9 +42,7 @@ app.use(expressSession(
     }
 ));
 
-app.use(flash());
-app.use(passport.initialize());
-app.use(passport.session());
+
 
 app.use('/', routes);
 app.use('/users', users);

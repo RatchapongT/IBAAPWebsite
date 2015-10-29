@@ -13,10 +13,13 @@
         $(document).ready(function () {
 
             $("#calendar").fullCalendar({
-                dayClick: function(date, jsEvent, view) {
+
+                dayClick: function (date, jsEvent, view) {
                     // change the day's background color just for fun
-                    $(".fc-today").removeClass("fc-today");
-                    $(jsEvent.target).addClass("fc-today");
+                    $(".fc-clicked").removeClass("fc-clicked");
+                    $(jsEvent.target).addClass("fc-clicked");
+
+
                     if ($(this).find(".relieverIcon").length > 0) {
                         $("#reliever").attr('src', 'img/releiveFill.png');
                     } else {
@@ -45,12 +48,63 @@
                     center: 'title',
                     right: 'month,basicWeek'
                 },
+
                 // defaultDate: '2014-11-12',
                 editable: true,
                 defaultView: 'basicWeek',
                 height: 200
 
             });
+//            var array =[];
+//            var plusIcon = document.createElement("div");
+//            plusIcon.className = "plusIcon";
+//            plusIcon.addEventListener("click", function() {
+//                console.log("SDFSD");
+//            });
+//            var plusIcon = $("<div class='plusIcon' id='plus'></div>");
+            var i = 0;
+            $(".fc-day").each(function(){
+                var plusIcon = document.createElement("div");
+                plusIcon.className = "plusIcon";
+                plusIcon.id = "clickme" + i++;
+                //var plusIcon = $("<div class='plusIcon' id='clickme'></div>");
+//                plusIcon.addEventListener("click", function() {
+//                    console.log("SDFSD");
+//                });
+                $(this).append(plusIcon);
+
+            });
+            $("#clickme0").click(function (e) {
+                alert("New note");
+            })
+            $("#clickme1").click(function (e) {
+                alert("New note");
+            })
+            $("#clickme2").click(function (e) {
+                alert("New note");
+            })
+            $("#clickme3").click(function (e) {
+                alert("New note");
+            })
+            $("#clickme4").click(function (e) {
+                alert("New note");
+            })
+            $("#clickme5").click(function (e) {
+                alert("New note");
+            })
+            $("#clickme6").click(function (e) {
+                alert("New note");
+            })
+
+
+//            if(typeof result == 'undefined') {
+//
+//                $.post("/update/" + array[0] + "/" + array[1] + "/"+ array[2] + "/"+ array[3] + "/"+ array[4] + "/"+ array[5] + "/" + array[6]);
+//            } else {
+//                console.log("ASDFASDF");
+//            }
+
+
 
 
         });

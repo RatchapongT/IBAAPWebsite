@@ -8,6 +8,15 @@ var userSchema = new Schema({
     created: {type: Date, default: Date.now}
 });
 
+var recordSchema = new Schema({
+    school: Boolean,
+    sleep: Boolean,
+    tired: Boolean,
+    reliever: Boolean,
+    recordDate: String,
+    created: {type: Date, default: Date.now}
+});
+
 userSchema.path('username').validate(function (username, next) {
     User.findOne({username : username}, function (err, user) {
         if (err) {
@@ -30,9 +39,11 @@ var userDetailSchema = new Schema({
 });
 
 var User = mongoose.model('User', userSchema);
+var Record = mongoose.model('Record', recordSchema);
 var UserDetail = mongoose.model('UserDetail', userDetailSchema);
 
 module.exports = {
     User: User,
-    UserDetail: UserDetail
+    UserDetail: UserDetail,
+    Record :Record
 };

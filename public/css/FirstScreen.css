@@ -186,6 +186,19 @@
     z-index: 1;
 }
 
+
+.plusIcon {
+    background-color: #24d106;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: 80px;
+
+    z-index: 1;
+}
+
+
 #calendar > div.fc-toolbar > div.fc-center > h2 {
     font-size: 16px;
     margin-top: 5px;
