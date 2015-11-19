@@ -85,7 +85,7 @@ $(document).ready(function () {
 
     $("#notes").click(function (e) {
         var today = $(".fc-clicked").length == 0?   $(".fc-today") : $(".fc-clicked");
-        window.location = "/notes/"
+        window.location = "/notes/" + today.data("date");
 
     });
 

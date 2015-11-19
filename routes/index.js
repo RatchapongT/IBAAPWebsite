@@ -201,45 +201,47 @@ router.post('/updateReliever/:reliever/:recordDate', function (req, res, next) {
     });
 });
 
-router.get('/Notes', function (req, res, next) {
+router.get('/Notes/:recordDate', function (req, res, next) {
     res.render('NotesPage', {
-        title: 'Notes'
+        title: 'Notes',
+        recordDate: req.params.recordDate
     });
 });
 
 
-router.get('/api/todos/', function (req, res, next) {
-    getTodos(res);
+router.get('/api/todos/:recordDate', function (req, res, next) {
+    getTodos(req.params.recordDate, res);
 });
 
-router.post('/api/todos/', function (req, res, next) {
+router.post('/api/todos/:recordDate', function (req, res, next) {
     Todo.create({
-        text : req.body.text,
-        done : false
-    }, function(err, todo) {
+        recordDate: req.params.recordDate,
+        text: req.body.text,
+        done: false
+    }, function (err, todo) {
         if (err)
             res.send(err);
 
         // get and return all the todos after you create another
-        getTodos(res);
+        getTodos(req.params.recordDate, res);
     });
 });
 
-router.delete('/api/todos/:todo_id', function (req, res, next) {
+router.delete('/api/todos/:recordDate/:todo_id', function (req, res, next) {
     Todo.remove({
+        recordDate: req.params.recordDate,
         _id: req.params.todo_id
     }, function (err, todo) {
         if (err)
             res.send(err);
 
-        getTodos(res);
+        getTodos(req.params.recordDate, res);
     });
 });
 
 
-
-function getTodos(res){
-    Todo.find(function(err, todos) {
+function getTodos(recordDate, res) {
+    Todo.find({recordDate : recordDate}, function (err, todos) {
 
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err)

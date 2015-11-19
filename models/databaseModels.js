@@ -10,6 +10,7 @@ var userSchema = new Schema({
 
 var todoSchema = new Schema({
     text: {type: String, default: ''},
+    recordDate: String,
     created: {type: Date, default: Date.now}
 });
 
