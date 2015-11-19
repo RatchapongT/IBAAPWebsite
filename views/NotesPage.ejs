@@ -54,7 +54,7 @@
                 <!-- LOOP OVER THE TODOS IN $scope.todos -->
                 <div ng-repeat="todo in todos">
                     <label>
-                        <input type="image" src="http://www.clker.com/cliparts/a/x/q/L/G/9/delete-icon-md.png" ng-click="deleteTodo(todo._id)" width="20px" align="center"> {{ todo.text }}
+                        <input type="image" src="http://www.clker.com/cliparts/a/x/q/L/G/9/delete-icon-md.png" ng-click="deleteTodo(todo._id, recordDate)" width="20px" align="center"> {{ todo.text }}
                     </label>
                 </div>
 
@@ -78,7 +78,7 @@
                     </div>
 
                     <!-- createToDo() WILL CREATE NEW TODOS -->
-                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
+                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo(recordDate)">Add</button>
                 </form>
             </div>
         </div>

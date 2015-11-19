@@ -223,6 +223,7 @@ router.post('/api/todos/:recordDate', function (req, res, next) {
             res.send(err);
 
         // get and return all the todos after you create another
+        console.log("ASD0");
         getTodos(req.params.recordDate, res);
     });
 });
@@ -246,7 +247,7 @@ function getTodos(recordDate, res) {
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err)
             res.send(err)
-
+        console.log(todos)
         res.json(todos); // return all todos in JSON format
     });
 };

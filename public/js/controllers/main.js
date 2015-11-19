@@ -24,17 +24,20 @@ angular.module('todoController', [])
                     });
             }
         });
+
         // CREATE ==================================================================
         // when submitting the add form, send the text to the node API
-        $scope.createTodo = function () {
+        $scope.createTodo = function (date) {
+
 
             // validate the formData to make sure that something is there
             // if form is empty, nothing will happen
-            if ($scope.formData.text != undefined && $scope.formData.date != undefined) {
+
+            if ($scope.formData.text != undefined && date != undefined) {
                 $scope.loading = true;
 
                 // call the create function from our service (returns a promise object)
-                Todos.create($scope.formData, $scope.formData.date)
+                Todos.create($scope.formData, date)
 
                     // if successful creation, call our get function to get all the new todos
                     .success(function (data) {
@@ -47,10 +50,10 @@ angular.module('todoController', [])
 
         // DELETE ==================================================================
         // delete a todo after checking it
-        $scope.deleteTodo = function (id) {
+        $scope.deleteTodo = function (id, date) {
             $scope.loading = true;
-            if ($scope.formData.date != undefined) {
-                Todos.delete(id, $scope.formData.date)
+            if (date != undefined) {
+                Todos.delete(id, date)
                     // if successful creation, call our get function to get all the new todos
                     .success(function (data) {
                         $scope.loading = false;
