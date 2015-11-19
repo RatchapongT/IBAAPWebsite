@@ -8,6 +8,11 @@ var userSchema = new Schema({
     created: {type: Date, default: Date.now}
 });
 
+var todoSchema = new Schema({
+    text: {type: String, default: ''},
+    created: {type: Date, default: Date.now}
+});
+
 var recordSchema = new Schema({
     school: Boolean,
     sleep: Boolean,
@@ -17,8 +22,9 @@ var recordSchema = new Schema({
     created: {type: Date, default: Date.now}
 });
 
+
 userSchema.path('username').validate(function (username, next) {
-    User.findOne({username : username}, function (err, user) {
+    User.findOne({username: username}, function (err, user) {
         if (err) {
             return next(false);
         }
@@ -39,11 +45,13 @@ var userDetailSchema = new Schema({
 });
 
 var User = mongoose.model('User', userSchema);
+var Todo = mongoose.model('Todo', todoSchema);
 var Record = mongoose.model('Record', recordSchema);
 var UserDetail = mongoose.model('UserDetail', userDetailSchema);
 
 module.exports = {
     User: User,
     UserDetail: UserDetail,
-    Record :Record
+    Record: Record,
+    Todo: Todo
 };

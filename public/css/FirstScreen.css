@@ -94,6 +94,12 @@
     cursor: pointer;
 }
 
+.notes {
+    width: 46px;
+    height: 46px;
+    cursor: pointer;
+}
+
 .limitedActivity {
     width: 46px;
     height: 46px;
