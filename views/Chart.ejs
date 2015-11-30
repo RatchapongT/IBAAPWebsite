@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include partials/page/head.ejs %>
+</head>
+<body>
+
+<!-- just creates the nav bar -->
+<div class="page-wrapper">
+    <% include partials/page/navbar.ejs %>
+    <div class="container" style="margin-top: 250px">
+        <table style="width:100%">
+            <tr>
+
+                <td align="center" style="vertical-align:bottom">
+                    <% for (var i = 0; i < chart.school; i++ ) { %>
+                    <div style="background-color: #303F9F; height: 10px; width: 10px; border-radius: 50%; margin-top: 2px; margin-bottom: 2px"></div>
+                    <% } %>
+                </td>
+                <td align="center" style="vertical-align:bottom">
+                    <% for (var i = 0; i < chart.sleep; i++ ) { %>
+                    <div style="background-color: #4A90E2; height: 10px; width: 10px; border-radius: 50%; margin-top: 2px; margin-bottom: 2px"></div>
+                    <% } %>
+                </td>
+                <td align="center" style="vertical-align:bottom">
+                    <% for (var i = 0; i < chart.tired; i++ ) { %>
+                    <div style="background-color: #FF5822; height: 10px; width: 10px; border-radius: 50%; margin-top: 2px; margin-bottom: 2px"></div>
+                    <% } %>
+                </td>
+                <td align="center" style="vertical-align:bottom">
+                    <% for (var i = 0; i < chart.reliever; i++ ) { %>
+                    <div style="background-color: #D1001B; height: 10px; width: 10px; border-radius: 50%; margin-top: 2px; margin-bottom: 2px"></div>
+                    <% } %>
+                </td>
+            </tr>
+
+            <tr style="height: 30px">
+                <td align="center"><strong style="font-size: 30px"><%=chart.school%></strong></td>
+                <td align="center"><strong style="font-size: 30px"><%=chart.sleep%></strong></td>
+                <td align="center"><strong style="font-size: 30px"><%=chart.tired%></strong></td>
+                <td align="center"><strong style="font-size: 30px"><%=chart.reliever%></strong></td>
+            </tr>
+            <tr style="height: 60px">
+                <td align="center">School <p><img src="img/schoolUnfill.png"; style="width: 50px; height: 50px"></p></td>
+                <td align="center">Sleep<p><img src="img/sleepUnfill.png"; style="width: 50px; height: 50px"></p></td>
+                <td align="center">Tired<p><img src="img/limitUnfill.png"; style="width: 50px; height: 50px"></p></td>
+                <td align="center">Reliever<p><img src="img/releiveUnfill.png"; style="width: 50px; height: 50px"></p></td>
+
+            </tr>
+        </table>
+
+    </div>
+
+
+</div>
+
+<script src="startup/common-files/js/jquery-1.10.2.min.js"></script>
+<script src="startup/common-files/js/jquery.bxslider.min.js"></script>
+<script src="startup/common-files/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script src="startup/common-files/js/jquery.sharrre.min.js"></script>
+<script src="startup/flat-ui/js/bootstrap.min.js"></script>
+<script src="startup/common-files/js/masonry.pkgd.min.js"></script>
+<script src="startup/common-files/js/modernizr.custom.js"></script>
+<script src="startup/common-files/js/page-transitions.js"></script>
+<script src="startup/common-files/js/easing.min.js"></script>
+<script src="startup/common-files/js/jquery.svg.js"></script>
+<script src="startup/common-files/js/jquery.svganim.js"></script>
+<script src="startup/common-files/js/jquery.backgroundvideo.min.js"></script>
+<script src="startup/common-files/js/froogaloop.min.js"></script>
+<script src="startup/common-files/js/startup-kit.js"></script>
+
+
+</body>
+</html>
