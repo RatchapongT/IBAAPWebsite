@@ -1,5 +1,5 @@
 var Record = require('../models/databaseModels').Record;
-
+var Todo = require('../models/databaseModels').Todo;
 exports.addRecord = function (input, next) {
 
     var newRecord = new Record({
@@ -81,3 +81,31 @@ exports.updateRelieverRecord = function (input, next) {
         }
     });
 };
+
+exports.getCalendarEvents = function (input, next) {
+    Record.find({}, function (err, recordObject) {
+        Todo.find({}, function (err, todoObject) {
+            results = [];
+            for (var i = 0; i < recordObject.length; i++) {
+                results.push({
+                    recordDate: recordObject[i].recordDate,
+                    reliever: recordObject[i].reliever,
+                    tired: recordObject[i].tired,
+                    sleep: recordObject[i].sleep,
+                    school: recordObject[i].school,
+                    note: false
+                })
+            }
+
+            for (var j = 0; j < todoObject.length; j++) {
+                for (var i = 0; i < results.length; i++) {
+                    if (results[i].recordDate == todoObject[j].recordDate) {
+                        results[i].note = true;
+                    }
+                }
+            }
+            next( err,results);
+        });
+
+    });
+}

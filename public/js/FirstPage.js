@@ -14,12 +14,12 @@ $(document).ready(function () {
         if (today.find(".schoolIcon").length == 0) {
             $("#pen").attr('src', 'img/schoolFill.png');
             today.append(schoolIcon);
-            //$.post("/updatePen/true/" + today.data("date"));
+            $.post("/updatePen/true/" + today.data("date"));
 
         } else {
             $("#pen").attr('src', 'img/schoolUnfill.png');
             today.find(".schoolIcon").remove();
-            //$.post("/updatePen/false/" + today.data("date"));
+            $.post("/updatePen/false/" + today.data("date"));
 
         }
     });
@@ -35,12 +35,12 @@ $(document).ready(function () {
         if (today.find(".sleepIcon").length == 0) {
             $("#sleep").attr('src', 'img/sleepFill.png');
             today.append(sleepIcon);
-            //$.post("/updateSleep/true/" + today.data("date"));
+            $.post("/updateSleep/true/" + today.data("date"));
 
         } else {
             $("#sleep").attr('src', 'img/sleepUnfill.png');
             today.find(".sleepIcon").remove();
-            //$.post("/updateSleep/false/" + today.data("date"));
+            $.post("/updateSleep/false/" + today.data("date"));
         }
     });
 
@@ -55,11 +55,11 @@ $(document).ready(function () {
         if (today.find(".tiredIcon").length == 0) {
             $("#tired").attr('src', 'img/limitFill.png');
             today.append(tiredIcon);
-            //$.post("/updateTired/true/" + today.data("date"));
+            $.post("/updateTired/true/" + today.data("date"));
         } else {
             $("#tired").attr('src', 'img/limitUnfill.png');
             today.find(".tiredIcon").remove();
-            //$.post("/updateTired/false/" + today.data("date"));
+            $.post("/updateTired/false/" + today.data("date"));
         }
     });
 
@@ -74,11 +74,11 @@ $(document).ready(function () {
         if (today.find(".relieverIcon").length == 0) {
             $("#reliever").attr('src', 'img/releiveFill.png');
             today.append(relieverIcon);
-            //$.post("/updateReliever/true/" + today.data("date"));
+            $.post("/updateReliever/true/" + today.data("date"));
         } else {
             $("#reliever").attr('src', 'img/releiveUnfill.png');
             today.find(".relieverIcon").remove();
-            //$.post("/updateReliever/false/" + today.data("date"));
+            $.post("/updateReliever/false/" + today.data("date"));
         }
 
     });
@@ -86,7 +86,6 @@ $(document).ready(function () {
     $("#notes").click(function (e) {
         var today = $(".fc-clicked").length == 0?   $(".fc-today") : $(".fc-clicked");
         window.location = "/notes/" + today.data("date");
-
     });
 
     // var month;

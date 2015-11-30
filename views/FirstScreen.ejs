@@ -16,39 +16,74 @@
 
                 dayClick: function (date, jsEvent, view) {
                     // change the day's background color just for fun
-                    $(".fc-clicked").removeClass("fc-clicked");
-                    $(jsEvent.target).addClass("fc-clicked");
+                    if ($(jsEvent.target).hasClass('fc-day')) {
+                        $(".fc-clicked").removeClass("fc-clicked");
+                        $(jsEvent.target).addClass("fc-clicked");
 
 
-                    if ($(this).find(".relieverIcon").length > 0) {
-                        $("#reliever").attr('src', 'img/releiveFill.png');
-                    } else {
-                        $("#reliever").attr('src', 'img/releiveUnfill.png');
-                    }
-                    if ($(this).find(".tiredIcon").length > 0) {
-                        $("#tired").attr('src', 'img/limitFill.png');
-                    } else {
-                        $("#tired").attr('src', 'img/limitUnfill.png');
-                    }
-                    if ($(this).find(".sleepIcon").length > 0) {
-                        $("#sleep").attr('src', 'img/sleepFill.png');
-                    } else {
-                        $("#sleep").attr('src', 'img/sleepUnfill.png');
-                    }
-                    if ($(this).find(".schoolIcon").length > 0) {
-                        $("#pen").attr('src', 'img/schoolFill.png');
-                    } else {
-                        $("#pen").attr('src', 'img/schoolUnfill.png');
-                    }
+                        if ($(this).find(".relieverIcon").length > 0) {
+                            $("#reliever").attr('src', 'img/releiveFill.png');
+                        } else {
+                            $("#reliever").attr('src', 'img/releiveUnfill.png');
+                        }
+                        if ($(this).find(".tiredIcon").length > 0) {
+                            $("#tired").attr('src', 'img/limitFill.png');
+                        } else {
+                            $("#tired").attr('src', 'img/limitUnfill.png');
+                        }
+                        if ($(this).find(".sleepIcon").length > 0) {
+                            $("#sleep").attr('src', 'img/sleepFill.png');
+                        } else {
+                            $("#sleep").attr('src', 'img/sleepUnfill.png');
+                        }
+                        if ($(this).find(".schoolIcon").length > 0) {
+                            $("#pen").attr('src', 'img/schoolFill.png');
+                        } else {
+                            $("#pen").attr('src', 'img/schoolUnfill.png');
+                        }
 
-
+                    }
                 },
                 header: {
                     left: 'prev,next',
                     center: 'title',
                     right: 'month,basicWeek'
                 },
+                viewRender: function (view, element) {
 
+                    $(".fc-day").each(function () {
+                        var plusIcon = document.createElement("div");
+                        plusIcon.className = "plusIcon";
+                        <% for(var i = 0; i < calendarObject.length; i++) { %>
+                        if ($(this).data("date") == '<%= calendarObject[i].recordDate%>') {
+                            var schoolIcon = $("<div class='schoolIcon'></div>");
+                            var sleepIcon = $("<div class='sleepIcon'></div>");
+                            var tiredIcon = $("<div class='tiredIcon'></div>");
+                            var relieverIcon = $("<div class='relieverIcon'></div>");
+                            var noteIcon = $("<div class='noteIcon'></div>");
+                            if ('<%= calendarObject[i].reliever%>' == 'true') {
+                                $(this).append(relieverIcon);
+                            }
+                            if ('<%= calendarObject[i].tired%>' == 'true') {
+                                $(this).append(tiredIcon);
+                            }
+
+                            if ('<%= calendarObject[i].sleep%>' == 'true') {
+                                $(this).append(sleepIcon);
+                            }
+                            if ('<%= calendarObject[i].school%>' == 'true') {
+                                $(this).append(schoolIcon);
+                            }
+                            if ('<%= calendarObject[i].note%>' == 'true') {
+                                $(this).append("<img  src='/img/notesIcon.png' style=' display: block; margin: auto auto;  height: 30px; width: 30px' />");
+                            }
+                        }
+
+                        <%  } %>
+
+
+                    });
+                },
                 // defaultDate: '2014-11-12',
                 editable: true,
                 defaultView: 'basicWeek',
@@ -62,39 +97,6 @@
 //                console.log("SDFSD");
 //            });
 //            var plusIcon = $("<div class='plusIcon' id='plus'></div>");
-            var i = 0;
-            $(".fc-day").each(function(){
-                var plusIcon = document.createElement("div");
-                plusIcon.className = "plusIcon";
-                plusIcon.id = "clickme" + i++;
-                //var plusIcon = $("<div class='plusIcon' id='clickme'></div>");
-//                plusIcon.addEventListener("click", function() {
-//                    console.log("SDFSD");
-//                });
-                $(this).append(plusIcon);
-
-            });
-            $("#clickme0").click(function (e) {
-                alert("New note");
-            })
-            $("#clickme1").click(function (e) {
-                alert("New note");
-            })
-            $("#clickme2").click(function (e) {
-                alert("New note");
-            })
-            $("#clickme3").click(function (e) {
-                alert("New note");
-            })
-            $("#clickme4").click(function (e) {
-                alert("New note");
-            })
-            $("#clickme5").click(function (e) {
-                alert("New note");
-            })
-            $("#clickme6").click(function (e) {
-                alert("New note");
-            })
 
 
 //            if(typeof result == 'undefined') {
@@ -103,8 +105,6 @@
 //            } else {
 //                console.log("ASDFASDF");
 //            }
-
-
 
 
         });

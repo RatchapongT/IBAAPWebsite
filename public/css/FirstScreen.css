@@ -193,13 +193,14 @@
 }
 
 
-.plusIcon {
-    background-color: #24d106;
-    height: 20px;
-    width: 20px;
+.noteIcon {
+    background-image: url('/img/notesIcon.png');
+    height: 100px;
+    width: 100px;
     border-radius: 50%;
     position: absolute;
-    top: 80px;
+    top: 40px;
+
 
     z-index: 1;
 }

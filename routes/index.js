@@ -8,13 +8,55 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/FirstScreen', function (req, res, next) {
-    res.render('FirstScreen', {title: 'FirstScreen'});
+    databaseFunction.getCalendarEvents({}, function (err, calendarObject) {
+        if (err) {
+
+        }
+
+        res.render('FirstScreen', {title: 'FirstScreen', calendarObject: calendarObject});
+    });
+
 });
 
-router.post('/update/:date1/:date2/:date3/:date4/:date5/:date6/:date7', function (req, res, next) {
-    console.log("222");
-    res.render('GreenZone', {title: 'FirstScreen', result: 'LOLL'});
+router.get('/Chart', function (req, res, next) {
+    databaseFunction.getCalendarEvents({}, function (err, calendarObject) {
+        if (err) {
+
+        }
+        var reliever = 0;
+        var school = 0;
+        var sleep = 0;
+        var tired = 0;
+        for (var i = 0; i < calendarObject.length; i++) {
+
+
+            if (calendarObject[i].reliever) {
+                reliever = reliever + 1;
+            }
+            if (calendarObject[i].school) {
+
+                school = school + 1;
+            }
+            if (calendarObject[i].sleep) {
+                sleep = sleep + 1;
+            }
+            if (calendarObject[i].tired) {
+                tired = tired + 1;
+            }
+        }
+
+        res.render('Chart', {
+            title: 'Chart', chart: {
+                reliever: reliever,
+                school: school,
+                sleep: sleep,
+                tired: tired
+            }
+        });
+    });
+
 });
+
 router.get('/GreenZone', function (req, res, next) {
     res.render('GreenZone', {title: 'GreenZone'});
 });
@@ -63,8 +105,7 @@ router.post('/updatePen/:pen/:recordDate', function (req, res, next) {
                 if (err) {
                     return res.send(err);
                 } else {
-                    console.log("Success!");
-                    return;
+                    res.end();
                 }
             });
         } else {
@@ -76,8 +117,7 @@ router.post('/updatePen/:pen/:recordDate', function (req, res, next) {
                 if (err) {
                     return res.send(err);
                 }
-                console.log(object);
-                return;
+                res.end();
             });
         }
     });
@@ -103,8 +143,7 @@ router.post('/updateSleep/:sleep/:recordDate', function (req, res, next) {
                 if (err) {
                     return res.send(err);
                 } else {
-                    console.log("Success!");
-                    return;
+                    res.end();
                 }
             });
         } else {
@@ -116,8 +155,7 @@ router.post('/updateSleep/:sleep/:recordDate', function (req, res, next) {
                 if (err) {
                     return res.send(err);
                 }
-                console.log(object);
-                return;
+                res.end();
             });
         }
     });
@@ -142,8 +180,7 @@ router.post('/updateTired/:tired/:recordDate', function (req, res, next) {
                 if (err) {
                     return res.send(err);
                 } else {
-                    console.log("Success!");
-                    return;
+                    res.end();
                 }
             });
         } else {
@@ -155,8 +192,7 @@ router.post('/updateTired/:tired/:recordDate', function (req, res, next) {
                 if (err) {
                     return res.send(err);
                 }
-                console.log(object);
-                return;
+                res.end();
             });
         }
     });
@@ -181,8 +217,7 @@ router.post('/updateReliever/:reliever/:recordDate', function (req, res, next) {
                 if (err) {
                     return res.send(err);
                 } else {
-                    console.log("Success!");
-                    return;
+                    res.end();
                 }
             });
         } else {
@@ -194,8 +229,7 @@ router.post('/updateReliever/:reliever/:recordDate', function (req, res, next) {
                 if (err) {
                     return res.send(err);
                 }
-                console.log(object);
-                return;
+                res.end();
             });
         }
     });
@@ -223,7 +257,7 @@ router.post('/api/todos/:recordDate', function (req, res, next) {
             res.send(err);
 
         // get and return all the todos after you create another
-        console.log("ASD0");
+
         getTodos(req.params.recordDate, res);
     });
 });
@@ -242,12 +276,11 @@ router.delete('/api/todos/:recordDate/:todo_id', function (req, res, next) {
 
 
 function getTodos(recordDate, res) {
-    Todo.find({recordDate : recordDate}, function (err, todos) {
+    Todo.find({recordDate: recordDate}, function (err, todos) {
 
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err)
             res.send(err)
-        console.log(todos)
         res.json(todos); // return all todos in JSON format
     });
 };
